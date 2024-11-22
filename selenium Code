@@ -1,0 +1,45 @@
+package HemsQALearning;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Instagram {
+
+    public static void main(String[] args) throws InterruptedException {
+        // Initialize WebDriver
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+
+        // Navigate to Instagram
+        driver.get("https://www.instagram.com");
+        Thread.sleep(3000);
+        driver.findElement(By.cssSelector("input[aria-label ='Phone number, username, or email']")).sendKeys("9876543210");
+        Thread.sleep(3000);
+        driver.findElement(By.cssSelector("input[aria-label ='Password']")).sendKeys("********");
+        Thread.sleep(3000);
+        driver.findElement(By.cssSelector("button[type ='submit']")).click();
+        Thread.sleep(7000);
+        driver.findElement(By.cssSelector("svg[aria-label=\"Search\"]")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.cssSelector("input[aria-label = 'Search input']")).sendKeys("hemsqalearning");
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//span[contains(text() , 'Hems SoftwareTraining')]")).click();
+        Thread.sleep(4000);
+        driver.findElement(By.cssSelector("div[class='_ap3a _aaco _aacw _aad6 _aade']")).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath("//div[@tabindex='0' and text() ='Message']")).click();
+        Thread.sleep(4000);
+        driver.findElement(By.cssSelector("div[aria-placeholder='Message...']")).sendKeys("I am Glad that you are my QA trainer!!!");
+        Thread.sleep(6000);
+        // Due to POP_UP , element not found  Exception is araising 
+        driver.findElement(By.cssSelector("button[class ='_a9-- _ap36 _a9_1']")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//div[@tabindex='0' and text() ='Send']")).click();
+        
+//        driver.quit();
+    }
+}
